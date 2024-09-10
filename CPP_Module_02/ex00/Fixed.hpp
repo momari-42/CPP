@@ -1,30 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   phonebook.hpp                                      :+:      :+:    :+:   */
+/*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: momari <momari@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/10 16:55:21 by momari            #+#    #+#             */
-/*   Updated: 2024/09/07 11:39:54 by momari           ###   ########.fr       */
+/*   Created: 2024/09/08 11:53:48 by momari            #+#    #+#             */
+/*   Updated: 2024/09/08 12:50:26 by momari           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHONEBOOK_HPP
-#define PHONEBOOK_HPP
+#ifndef FIXED_HPP
+#define FIXED_HPP
 
-#include "contact.hpp"
+#include <iostream>
 
-class PhoneBook
+class Fixed
 {
     private:
-        Contact contact[8]; // when we defined a class in class this named "A nested class" and of course can be public of private or protected based on the needs of program
+        int fixedPointNumber;
+        static const int numberOfFructional = 8;
     public:
-        void addContact();
-        void searchContact();
-        void displaySavedContacts();
-        void searshForSavedContacts();
-
+        Fixed();
+        Fixed(const Fixed& other);
+        Fixed& operator=(const Fixed& other);
+        ~Fixed();
+        int getRawBits( void ) const;
+        void setRawBits( int const raw );
 };
 
 

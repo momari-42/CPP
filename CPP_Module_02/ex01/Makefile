@@ -1,13 +1,13 @@
-SRC			= tests.cpp Account.cpp
+SRC			= Fixed.cpp main.cpp
 OBJ			= $(SRC:.cpp=.o)
-NAME		= account
+NAME		= Fixed
 CPP			= c++
 CPPFLAGS	= -Wall -Wextra -Werror -std=c++98
-HDERS		= Account.hpp
+HDERS		=  Fixed.hpp
 
 all : $(NAME)
 
-$(NAME): $(OBJ)  $(HDERS)
+$(NAME): $(OBJ) $(HDERS)
 	$(CPP) $(CPPFLAGS) $(OBJ) -o $(NAME)
 
 %.o: %.cpp

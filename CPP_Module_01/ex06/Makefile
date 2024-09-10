@@ -1,13 +1,13 @@
-SRC			= main.cpp contact.cpp phonebook.cpp
+SRC			= main.cpp Harl.cpp
 OBJ			= $(SRC:.cpp=.o)
-NAME		= phonebook
+NAME		= harlFilter
 CPP			= c++
 CPPFLAGS	= -Wall -Wextra -Werror -std=c++98
-HDERS		= contact.hpp phonebook.hpp
+HDERS		= Harl.hpp
 
 all : $(NAME)
 
-$(NAME): $(OBJ) 
+$(NAME): $(OBJ) $(HDERS)
 	$(CPP) $(CPPFLAGS) $(OBJ) -o $(NAME)
 
 %.o: %.cpp

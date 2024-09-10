@@ -6,7 +6,7 @@
 /*   By: momari <momari@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/01 14:14:42 by momari            #+#    #+#             */
-/*   Updated: 2024/09/01 16:43:33 by momari           ###   ########.fr       */
+/*   Updated: 2024/09/05 09:15:32 by momari           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void openOutFile(std::string fileContent, std::string fileName)
 {
     (void) fileContent;
     std::string outFileName = fileName + ".replace";
-    std::fstream outFile(outFileName, std::ios::out | std::ios::app);
+    std::fstream outFile(outFileName, std::ios::out);
     if (!outFile.is_open())
     {
         std::cout << "Error: opening outfile ";
@@ -63,7 +63,7 @@ void openOutFile(std::string fileContent, std::string fileName)
         std::cout << std::endl;
         exit (1);
     }
-    
+    outFile << fileContent;
 }
 
 void replaceFile(char **av)

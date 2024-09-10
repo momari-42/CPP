@@ -1,31 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   phonebook.hpp                                      :+:      :+:    :+:   */
+/*   Harl.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: momari <momari@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/10 16:55:21 by momari            #+#    #+#             */
-/*   Updated: 2024/09/07 11:39:54 by momari           ###   ########.fr       */
+/*   Created: 2024/09/03 10:36:31 by momari            #+#    #+#             */
+/*   Updated: 2024/09/03 13:01:46 by momari           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHONEBOOK_HPP
-#define PHONEBOOK_HPP
+#ifndef HARL_CPP
+#define HARL_CPP
 
-#include "contact.hpp"
+#include <iostream>
 
-class PhoneBook
-{
+class Harl {
     private:
-        Contact contact[8]; // when we defined a class in class this named "A nested class" and of course can be public of private or protected based on the needs of program
+        void debug( void );
+        void info( void );
+        void warning( void );
+        void error( void );
     public:
-        void addContact();
-        void searchContact();
-        void displaySavedContacts();
-        void searshForSavedContacts();
-
+        void complain( std::string level );
 };
-
 
 #endif

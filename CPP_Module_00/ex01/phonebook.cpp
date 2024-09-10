@@ -6,7 +6,7 @@
 /*   By: momari <momari@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/10 09:40:02 by momari            #+#    #+#             */
-/*   Updated: 2024/08/31 19:57:06 by momari           ###   ########.fr       */
+/*   Updated: 2024/09/07 12:00:29 by momari           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,11 @@ static int validateString(std::string str)
         return (0);
     while (i < (int)str.length())
     {
-        if (isalpha(str[i]) == 0)
-            return (0);
+        if (isalpha(str[i]))
+            return (1);
         i++;
     }
-    return (1);
+    return (0);
 }
 
 static int  validatePhoneNumber(std::string str)
@@ -44,7 +44,7 @@ static int  validatePhoneNumber(std::string str)
             return (0);
         i++;
     }
-    if (i > 13)
+    if (i > 13 || i < 6)
         return (0);
     return (1);
 }
@@ -70,7 +70,8 @@ static std::string getUserPhoneNumber(std::string prompt)
     while (!validatePhoneNumber(line))
     {
         std::cout << prompt;
-        std::getline(std::cin, line);
+        if (std::getline(std::cin, line).eof())
+            exit(0);
     }
     return (line);
 }
@@ -82,7 +83,8 @@ static std::string getUserDarkestSecrete(std::string prompt)
     while (line.empty())
     {
         std::cout << prompt;
-        std::getline(std::cin, line);
+        if (std::getline(std::cin, line).eof())
+            exit(0);
     }
     return (line);
 }
@@ -174,7 +176,51 @@ void PhoneBook::displaySavedContacts()
     }
 }
 
+
+static int readIndex(std::string prompt)
+{
+    std::string line;
+
+    while (line.empty())
+    {
+        std::cout << prompt;
+        if (std::getline(std::cin, line).eof())
+            exit(0);
+    }
+    if (line.length() == 1 && (line[0] >= '1' && line[0] <= '8'))
+        return ((int)line[0] - '0');
+    return (-1);
+}
+
+void PhoneBook::searshForSavedContacts()
+{
+    int index;
+
+    index = readIndex("    Please enter the index of the contact you'd like to display: ");
+    if (index == -1) {
+        std::cout << "        🚨You inter invalid index🚨" ;
+        std::cout << std::endl ;
+        return ;
+    }
+    index--;
+    if (contact[index].getFirstName().length() == 0) {
+        std::cout << "        🚨This contact is empty🚨" ;
+        std::cout << std::endl ;
+        return ;
+    }
+    std::cout << "---------------------------------------------" << std::endl;
+    std::cout << "|index     |first name|last name |nickname  |" << std::endl;
+    std::cout << "---------------------------------------------" << std::endl;
+    std::cout << "|" << index + 1 << "         |";
+    displayString(contact[index].getFirstName());
+    displayString(contact[index].getLastName());
+    displayString(contact[index].getNickName());
+    std::cout << std::endl;
+    std::cout << "---------------------------------------------" << std::endl;
+}
+
 void PhoneBook::searchContact()
 {
     displaySavedContacts();
+    searshForSavedContacts();
 }

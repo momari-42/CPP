@@ -1,13 +1,13 @@
-SRC			= tests.cpp Account.cpp
+SRC			= main.cpp ReplaceFile.cpp
 OBJ			= $(SRC:.cpp=.o)
-NAME		= account
+NAME		= replace
 CPP			= c++
 CPPFLAGS	= -Wall -Wextra -Werror -std=c++98
-HDERS		= Account.hpp
+HDERS		= ReplaceFile.hpp
 
 all : $(NAME)
 
-$(NAME): $(OBJ)  $(HDERS)
+$(NAME): $(OBJ) $(HDERS)
 	$(CPP) $(CPPFLAGS) $(OBJ) -o $(NAME)
 
 %.o: %.cpp
