@@ -6,7 +6,7 @@
 /*   By: momari <momari@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/01 14:14:42 by momari            #+#    #+#             */
-/*   Updated: 2024/09/05 09:15:32 by momari           ###   ########.fr       */
+/*   Updated: 2024/09/10 15:48:23 by momari           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,6 @@ void findAndReplace(std::string &fileContent, std::string s1, std::string s2)
     size_t i = 0;
     if (s1.empty())
         return ;
-    std::cout << "test" << std::endl;
     while ((i = fileContent.find(s1, i)) != std::string::npos) {
         fileContent.erase(i, s1.length());
         fileContent.insert(i, s2);

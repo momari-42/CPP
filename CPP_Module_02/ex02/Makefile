@@ -1,13 +1,13 @@
-SRC			= main.cpp Contact.cpp PhoneBook.cpp
+SRC			= Fixed.cpp main.cpp
 OBJ			= $(SRC:.cpp=.o)
-NAME		= phonebook
+NAME		= Fixed
 CPP			= c++
 CPPFLAGS	= -Wall -Wextra -Werror -std=c++98
-HDERS		= Contact.hpp PhoneBook.hpp
+HDERS		=  Fixed.hpp
 
 all : $(NAME)
 
-$(NAME): $(OBJ)  $(HDERS)
+$(NAME): $(OBJ) $(HDERS)
 	$(CPP) $(CPPFLAGS) $(OBJ) -o $(NAME)
 
 %.o: %.cpp

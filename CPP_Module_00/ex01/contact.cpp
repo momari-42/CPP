@@ -6,11 +6,11 @@
 /*   By: momari <momari@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/10 09:39:59 by momari            #+#    #+#             */
-/*   Updated: 2024/08/30 16:02:44 by momari           ###   ########.fr       */
+/*   Updated: 2024/09/11 10:12:48 by momari           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "contact.hpp"
+#include "Contact.hpp"
 
 void Contact::setFirstName(std::string firstName)
 {

@@ -1,33 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   phonebook.hpp                                      :+:      :+:    :+:   */
+/*   Point.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: momari <momari@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/10 16:55:21 by momari            #+#    #+#             */
-/*   Updated: 2024/09/11 10:12:27 by momari           ###   ########.fr       */
+/*   Created: 2024/09/13 12:05:43 by momari            #+#    #+#             */
+/*   Updated: 2024/09/13 12:29:36 by momari           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHONEBOOK_HPP
-#define PHONEBOOK_HPP
+# ifndef POINT_HPP
+# define POINT_HPP
 
-#include "Contact.hpp"
-#include <iomanip>
-#include <string>
+#include "Fixed.hpp"
 
-class PhoneBook
-{
+class Point {
     private:
-        Contact contact[8]; // when we defined a class in class this named "A nested class" and of course can be public of private or protected based on the needs of program
+        const Fixed x;
+        const Fixed y;
     public:
-        void addContact();
-        void searchContact();
-        void displaySavedContacts();
-        void searshForSavedContacts();
-
+        Point( void );
+        Point ( const float num1, const float num2 );
+        Point (const Point& other);
+        Point& operator=( const Point& P2 );
+        ~Point( void );
+        
+        
+    
 };
 
-
-#endif
+# endif

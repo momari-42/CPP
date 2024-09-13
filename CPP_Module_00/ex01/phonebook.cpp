@@ -6,11 +6,11 @@
 /*   By: momari <momari@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/10 09:40:02 by momari            #+#    #+#             */
-/*   Updated: 2024/09/07 12:00:29 by momari           ###   ########.fr       */
+/*   Updated: 2024/09/11 10:12:58 by momari           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "phonebook.hpp"
+#include "PhoneBook.hpp"
 
 
 static int validateString(std::string str)
@@ -125,28 +125,16 @@ void PhoneBook::addContact()
 
 static void displayString(std::string str)
 {
-    int i;
-    int len;
+    int n = (int)str.length();
 
-    i = 0;
-    len = (int)str.length();
-    if (len < 10)
-    {
-        std::cout << str;
-        while (len < 10)
-        {
-            std::cout << " ";
-            len++;
-        }
+    if (str.length() > 10) {
+        std::cout << str.substr(0, 9) << ".";
     }
-    else
-    {
-        while (i < 9)
-        {
-            std::cout << str[i];
-            i++;
+    else {
+        for (int i = 0; i < 10 - n; i++) {
+            std::cout << " ";
         }
-        std::cout << ".";
+        std::cout << str;
     }
     std::cout << "|";
 }
