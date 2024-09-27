@@ -14,7 +14,7 @@
 
 int main( void ) {
 
-    Fixed a;
+    Fixed a; 
     Fixed b( a );
     Fixed c;
     c = b;

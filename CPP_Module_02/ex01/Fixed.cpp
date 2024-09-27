@@ -6,14 +6,14 @@
 /*   By: momari <momari@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/08 11:53:51 by momari            #+#    #+#             */
-/*   Updated: 2024/09/10 15:52:11 by momari           ###   ########.fr       */
+/*   Updated: 2024/09/26 20:57:02 by momari           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 
 Fixed::Fixed() {
-    this->fixedPointNumber = 0;
+    fixedPointNumber = 0;
     std::cout << "Default constructor called";
     std::cout << std::endl;
 }
@@ -27,7 +27,7 @@ Fixed::Fixed(const Fixed& other) {
 Fixed& Fixed::operator=(const Fixed& other) {
     std::cout << "Copy assignment operator called";
     std::cout << std::endl;
-    this->fixedPointNumber = other.getRawBits();
+    fixedPointNumber = other.getRawBits();
     return *this;
 }
 
@@ -39,13 +39,13 @@ Fixed::~Fixed() {
 int Fixed::getRawBits( void ) const {
     std::cout << "getRawBits member function called";
     std::cout << std::endl;
-    return (this->fixedPointNumber);
+    return (fixedPointNumber);
 }
 
 void Fixed::setRawBits( int const raw ) {
     std::cout << "setRawBits member function called";
     std::cout << std::endl;
-    this->fixedPointNumber = raw;
+    fixedPointNumber = raw;
 }
 
 // The new constructors and member functions
@@ -53,21 +53,21 @@ void Fixed::setRawBits( int const raw ) {
 Fixed::Fixed( const int num ) {
     std::cout << "Int constructor called";
     std::cout << std::endl;
-    this->fixedPointNumber = num * 256;
+    fixedPointNumber = num << numberOfFructional;
 }
 
 Fixed::Fixed( const float num ) {
     std::cout << "Float constructor called";
     std::cout << std::endl;
-    this->fixedPointNumber = roundf(num * 256);
+    fixedPointNumber = roundf(num * (1 << numberOfFructional));
 }
 
 float Fixed::toFloat( void ) const {
-    return (this->fixedPointNumber / 256.0);
+    return (fixedPointNumber / (float)(1 << numberOfFructional));
 }
 
 int Fixed::toInt( void ) const {
-    return (roundf(this->fixedPointNumber / 256) );
+    return (roundf(fixedPointNumber >> numberOfFructional));
 }
 
 std::ostream& operator<<( std::ostream& out, const Fixed& fixed) {

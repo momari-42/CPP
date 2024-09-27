@@ -6,7 +6,7 @@
 /*   By: momari <momari@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/08 11:53:48 by momari            #+#    #+#             */
-/*   Updated: 2024/09/10 15:29:37 by momari           ###   ########.fr       */
+/*   Updated: 2024/09/26 20:54:37 by momari           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 class Fixed
 {
     private:
-        int fixedPointNumber;
+        int fixedPointNumber; 
         static const int numberOfFructional = 8;
     public:
         Fixed();
@@ -28,14 +28,33 @@ class Fixed
         ~Fixed();
         int getRawBits( void ) const;
         void setRawBits( int const raw );
+
         // The new constructors and member functions
+
         Fixed( const int num );
         Fixed( const float num );
         float toFloat( void ) const;
         int toInt( void ) const;
-    
+        int operator>( const Fixed& fixedTwo );
+        int operator<( const Fixed& fixedTwo );
+        int operator>=( const Fixed& fixedTwo );
+        int operator<=( const Fixed& fixedTwo );
+        int operator==( const Fixed& fixedTwo );
+        int operator!=( const Fixed& fixedTwo );
+        Fixed operator+( const Fixed& fixedTwo );
+        Fixed operator-( const Fixed& fixedTwo );
+        Fixed operator*( const Fixed& fixedTwo );
+        Fixed operator/( const Fixed& fixedTwo );
+        Fixed& operator++( void );
+        Fixed operator++( int );
+        Fixed& operator--( void );
+        Fixed operator--( int );
+        static Fixed& max(  Fixed& fixedOne,  Fixed& fixedTwo);
+        static const Fixed& max( const Fixed& fixedOne, const Fixed& fixedTwo);
+        static Fixed& min(  Fixed& fixedOne,  Fixed& fixedTwo);
+        static const Fixed& min( const Fixed& fixedOne, const Fixed& fixedTwo);
 };
 
-        std::ostream& operator<<(std::ostream& out, const Fixed& fixed);
+std::ostream& operator<<(std::ostream& out, const Fixed& fixed);
 
 #endif

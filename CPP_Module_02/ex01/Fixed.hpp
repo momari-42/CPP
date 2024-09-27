@@ -28,7 +28,9 @@ class Fixed
         ~Fixed();
         int getRawBits( void ) const;
         void setRawBits( int const raw );
+
         // The new constructors and member functions
+
         Fixed( const int num );
         Fixed( const float num );
         float toFloat( void ) const;
@@ -36,6 +38,6 @@ class Fixed
     
 };
 
-        std::ostream& operator<<(std::ostream& out, const Fixed& fixed);
+std::ostream& operator<<(std::ostream& out, const Fixed& fixed);
 
 #endif

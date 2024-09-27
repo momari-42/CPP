@@ -6,30 +6,20 @@
 /*   By: momari <momari@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/08 11:53:53 by momari            #+#    #+#             */
-/*   Updated: 2024/09/10 16:11:54 by momari           ###   ########.fr       */
+/*   Updated: 2024/09/26 20:48:03 by momari           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Fixed.hpp"
+#include "Point.hpp"
 
 int main( void ) {
+    Point a(6.88155, -5.1464);
+    Point b(6.41679, -5.31803);
+    Point c(6.4821, -4.81378);
+    Point d(6.4821, -4.81378);
 
-    Fixed a;
-    Fixed const b( 10 );
-    Fixed const c( 42.42f );
-    Fixed const d( b );
-
-    a = Fixed( 1234.4321f );
-
-    std::cout << "a is " << a.toFloat() << std::endl;
-    std::cout << "b is " << b << std::endl;
-    std::cout << "c is " << c << std::endl;
-    std::cout << "d is " << d << std::endl;
-
-    std::cout << "a is " << a.toInt() << " as integer" << std::endl;
-    std::cout << "b is " << b.toInt() << " as integer" << std::endl;
-    std::cout << "c is " << c.toInt() << " as integer" << std::endl;
-    std::cout << "d is " << d.toInt() << " as integer" << std::endl;
-    return 0;
-
+    if (bsp (a, b, c, d))
+        std::cout << "the point is <<in>> the triangle" << std::endl;
+    else
+        std::cout << "the point is <<out>> the triangle" << std::endl;
 }
