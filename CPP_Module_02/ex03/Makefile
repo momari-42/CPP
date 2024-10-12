@@ -3,7 +3,7 @@ OBJ			= $(SRC:.cpp=.o)
 NAME		= Fixed
 CPP			= c++
 CPPFLAGS	= -Wall -Wextra -Werror -std=c++98
-HDERS		=  Fixed.hpp
+HDERS		=  Fixed.hpp Point.hpp
 
 all : $(NAME)
 

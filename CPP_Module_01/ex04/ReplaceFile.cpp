@@ -6,7 +6,7 @@
 /*   By: momari <momari@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/01 14:14:42 by momari            #+#    #+#             */
-/*   Updated: 2024/09/10 15:48:23 by momari           ###   ########.fr       */
+/*   Updated: 2024/09/25 10:13:49 by momari           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ static void openInFile(char *fileName, std::string &fileContent)
     std::string line;
 
     std::ifstream inFile(fileName);
-    if (!inFile.is_open())
+    if (!inFile)
     {
         std::cout << "Error: opening infile ";
         std::cout << fileName;
@@ -48,14 +48,14 @@ void findAndReplace(std::string &fileContent, std::string s1, std::string s2)
         fileContent.insert(i, s2);
         i += s2.length();
     }
+    std::cout << i << std::endl;
 }
 
 void openOutFile(std::string fileContent, std::string fileName)
 {
-    (void) fileContent;
     std::string outFileName = fileName + ".replace";
     std::fstream outFile(outFileName, std::ios::out);
-    if (!outFile.is_open())
+    if (!outFile)
     {
         std::cout << "Error: opening outfile ";
         std::cout << outFileName;
@@ -63,6 +63,7 @@ void openOutFile(std::string fileContent, std::string fileName)
         exit (1);
     }
     outFile << fileContent;
+    outFile.close();
 }
 
 void replaceFile(char **av)

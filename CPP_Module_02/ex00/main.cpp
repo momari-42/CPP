@@ -6,7 +6,7 @@
 /*   By: momari <momari@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/08 11:53:53 by momari            #+#    #+#             */
-/*   Updated: 2024/09/09 08:35:12 by momari           ###   ########.fr       */
+/*   Updated: 2024/10/02 18:21:21 by momari           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,9 @@ int main( void ) {
     Fixed a; 
     Fixed b( a );
     Fixed c;
+
     c = b;
+
     std::cout << a.getRawBits() << std::endl;
     std::cout << b.getRawBits() << std::endl;
     std::cout << c.getRawBits() << std::endl;

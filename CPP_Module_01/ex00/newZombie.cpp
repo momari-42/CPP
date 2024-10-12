@@ -6,7 +6,7 @@
 /*   By: momari <momari@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/31 20:36:56 by momari            #+#    #+#             */
-/*   Updated: 2024/08/31 21:25:23 by momari           ###   ########.fr       */
+/*   Updated: 2024/09/25 08:13:02 by momari           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,5 +15,8 @@
 Zombie* newZombie( std::string name )
 {
     Zombie* myZombie = new Zombie( name );
+    if (!myZombie) {
+        return (NULL);   
+    }
     return (myZombie);
 }

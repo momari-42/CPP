@@ -6,7 +6,7 @@
 /*   By: momari <momari@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/08 11:53:48 by momari            #+#    #+#             */
-/*   Updated: 2024/09/26 20:56:20 by momari           ###   ########.fr       */
+/*   Updated: 2024/10/02 14:06:10 by momari           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,16 +35,16 @@ class Fixed
         Fixed( const float num );
         float toFloat( void ) const;
         int toInt( void ) const;
-        int operator>( const Fixed& fixedTwo ); //check 
+        int operator>( const Fixed& fixedTwo ) const; //check 
         int operator<( const Fixed& fixedTwo ) const; //+1
-        int operator>=( const Fixed& fixedTwo ); //+1
-        int operator<=( const Fixed& fixedTwo ); //+1
-        int operator==( const Fixed& fixedTwo ); //+1
-        int operator!=( const Fixed& fixedTwo ); //+1
-        Fixed operator+( const Fixed& fixedTwo ); //+1
-        Fixed operator-( const Fixed& fixedTwo ); //+1
-        Fixed operator*( const Fixed& fixedTwo );//+1
-        Fixed operator/( const Fixed& fixedTwo );//+1
+        int operator>=( const Fixed& fixedTwo ) const; //+1
+        int operator<=( const Fixed& fixedTwo ) const; //+1
+        int operator==( const Fixed& fixedTwo ) const; //+1
+        int operator!=( const Fixed& fixedTwo ) const; //+1
+        Fixed operator+( const Fixed& fixedTwo ) const; //+1
+        Fixed operator-( const Fixed& fixedTwo ) const; //+1
+        Fixed operator*( const Fixed& fixedTwo ) const;//+1
+        Fixed operator/( const Fixed& fixedTwo ) const;//+1
         Fixed& operator++( void );
         Fixed operator++( int );
         Fixed& operator--( void );

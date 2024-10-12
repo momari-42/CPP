@@ -6,7 +6,7 @@
 /*   By: momari <momari@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/01 14:04:03 by momari            #+#    #+#             */
-/*   Updated: 2024/09/01 14:22:17 by momari           ###   ########.fr       */
+/*   Updated: 2024/09/25 10:15:16 by momari           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,4 +20,5 @@ int main(int ac, char **av)
         return (1);
     }
     replaceFile(av);
+    return (0);
 }

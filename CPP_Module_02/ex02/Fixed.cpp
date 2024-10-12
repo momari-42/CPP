@@ -6,7 +6,7 @@
 /*   By: momari <momari@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/08 11:53:51 by momari            #+#    #+#             */
-/*   Updated: 2024/09/26 20:39:18 by momari           ###   ########.fr       */
+/*   Updated: 2024/10/02 14:12:53 by momari           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ std::ostream& operator<<( std::ostream& out, const Fixed& fixed) {
     return (out);
 }
 
-int Fixed::operator>( const Fixed& fixedTwo) {
+int Fixed::operator>( const Fixed& fixedTwo) const {
     return (fixedPointNumber > fixedTwo.fixedPointNumber);
 }
 
@@ -67,44 +67,44 @@ int Fixed::operator<( const Fixed& fixedTwo) const{
     return (fixedPointNumber < fixedTwo.fixedPointNumber);
 }
 
-int Fixed::operator>=( const Fixed& fixedTwo) {
+int Fixed::operator>=( const Fixed& fixedTwo) const {
     return (fixedPointNumber >= fixedTwo.fixedPointNumber);
 }
 
-int Fixed::operator<=( const Fixed& fixedTwo) {
+int Fixed::operator<=( const Fixed& fixedTwo) const {
     return (fixedPointNumber <= fixedTwo.fixedPointNumber);
 }
 
-int Fixed::operator==( const Fixed& fixedTwo) {
+int Fixed::operator==( const Fixed& fixedTwo) const {
     return (fixedPointNumber == fixedTwo.fixedPointNumber);
 }
 
-int Fixed::operator!=( const Fixed& fixedTwo) {
+int Fixed::operator!=( const Fixed& fixedTwo) const {
     return (fixedPointNumber != fixedTwo.fixedPointNumber);
 }
 
-Fixed Fixed::operator+( const Fixed& fixedTwo) {
+Fixed Fixed::operator+( const Fixed& fixedTwo) const {
     Fixed result;
 
     result.setRawBits(this->getRawBits() + fixedTwo.getRawBits());
     return ( result );
 }
 
-Fixed Fixed::operator-( const Fixed& fixedTwo) {
+Fixed Fixed::operator-( const Fixed& fixedTwo) const {
     Fixed result;
 
     result.setRawBits(this->getRawBits() - fixedTwo.getRawBits());
     return ( result );
 }
 
-Fixed Fixed::operator*( const Fixed& fixedTwo) {
+Fixed Fixed::operator*( const Fixed& fixedTwo) const {
     Fixed result;
 
     result.setRawBits(this->toFloat() * fixedTwo.toFloat() * (1 << numberOfFructional));
     return ( result );
 }
 
-Fixed Fixed::operator/( const Fixed& fixedTwo ) {
+Fixed Fixed::operator/( const Fixed& fixedTwo ) const {
     Fixed result;
 
     if (fixedTwo.getRawBits() != 0)
@@ -135,14 +135,14 @@ Fixed Fixed::operator--( int ) {
 }
 
 Fixed& Fixed::max ( Fixed& fixedOne, Fixed& fixedTwo ) {
-    return ( fixedOne > fixedTwo ? fixedOne : fixedTwo );
+    return ( fixedOne.fixedPointNumber > fixedTwo.fixedPointNumber ? fixedOne : fixedTwo );
 }
 
 const Fixed& Fixed::max ( const Fixed& fixedOne, const Fixed& fixedTwo ) {
     return ( fixedOne.fixedPointNumber > fixedTwo.fixedPointNumber ? fixedOne : fixedTwo );
 }
 Fixed& Fixed::min ( Fixed& fixedOne, Fixed& fixedTwo ) {
-    return ( fixedOne < fixedTwo ? fixedOne : fixedTwo );
+    return ( fixedOne.fixedPointNumber < fixedTwo.fixedPointNumber ? fixedOne : fixedTwo );
 }
 
 const Fixed& Fixed::min ( const Fixed& fixedOne, const Fixed& fixedTwo ) {
