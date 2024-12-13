@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PhoneBook.cpp                                      :+:      :+:    :+:   */
+/*   phonebook.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: momari <momari@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/10 09:40:02 by momari            #+#    #+#             */
-/*   Updated: 2024/10/12 10:05:16 by momari           ###   ########.fr       */
+/*   Updated: 2024/09/11 10:12:58 by momari           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -197,12 +197,13 @@ void PhoneBook::searshForSavedContacts()
         return ;
     }
     std::cout << "---------------------------------------------" << std::endl;
-    std::cout << "Index          : " << index + 1 << std::endl;
-    std::cout << "First Name     : " << contact[index].getFirstName() << std::endl;
-    std::cout << "Last Name      : " << contact[index].getLastName() << std::endl;
-    std::cout << "Nick Name      : " << contact[index].getNickName() << std::endl;
-    std::cout << "Phone Number   : " << contact[index].getPhoneNumber() << std::endl;
-    std::cout << "Darkest Secret : " << contact[index].getDarkestSecrete() << std::endl;
+    std::cout << "|index     |first name|last name |nickname  |" << std::endl;
+    std::cout << "---------------------------------------------" << std::endl;
+    std::cout << "|" << index + 1 << "         |";
+    displayString(contact[index].getFirstName());
+    displayString(contact[index].getLastName());
+    displayString(contact[index].getNickName());
+    std::cout << std::endl;
     std::cout << "---------------------------------------------" << std::endl;
 }
 
